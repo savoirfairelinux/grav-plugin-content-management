@@ -1,0 +1,27 @@
+{% set form_id = form_id ? form_id : 'blueprints' %}
+
+<form id="{{ form_id }}" method="post" data-grav-form="{{ form_id }}" data-grav-keepalive="true">
+    <div class="content-button-bar">
+        <button class="button button-x-small" {% if disabled %}disabled{% endif %}>
+            {{"PLUGIN_CONTENT_MANAGEMENT.TO_PROD"|e|tu}}
+        </button>
+        <a href='/admin/content-management/detail/{{ data.hash }}' class="button button-x-small">
+            <i class="fa fa-fw fa-eye"></i>
+            {{"PLUGIN_CONTENT_MANAGEMENT.SEE_DETAIL"|e|tu}}
+        </a>
+    </div>
+
+    <input type="hidden" name="hash" value="{{data.hash}}" />
+
+    <span class="summary">
+        {{ data.title }}
+    </span>
+    <span class="date">
+        {{ data.date }}
+    </span>
+
+    <input type="hidden" name="task" value="toProd" />
+
+    {{ nonce_field('admin-form', 'admin-nonce')|raw }}
+
+</form>

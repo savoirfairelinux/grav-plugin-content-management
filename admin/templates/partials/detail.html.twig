@@ -1,0 +1,31 @@
+{{ "PLUGIN_CONTENT_MANAGER.DETAIL_TITLE" | t(grav.twig.hash) }}
+
+{% set disabled = (grav.twig.hash == grav.twig.prod.hash) %}
+
+{% if grav.user.access.admin.contentManagement %}
+<form id="{{ form_id }}" method="post" data-grav-form="{{ form_id }}" data-grav-keepalive="true">
+    <div class="content-button-bar">
+        <button class="button button-x-small" {% if disabled %}disabled{% endif %}>
+            {{"PLUGIN_CONTENT_MANAGEMENT.TO_PROD"|e|tu}}
+        </button>
+    </div>
+
+    <input type="hidden" name="hash" value="{{grav.twig.hash}}" />
+
+    <input type="hidden" name="task" value="toProd" />
+
+    {{ nonce_field('admin-form', 'admin-nonce')|raw }}
+
+</form>
+{% endif %}
+
+<div>
+<pre>
+{{ grav.twig.detail }}
+</pre>
+</div>
+<div>
+<pre>
+{{ grav.twig.diff }}
+</pre>
+</div>

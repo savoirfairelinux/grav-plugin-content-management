@@ -1,0 +1,26 @@
+name: Content Management
+version: 0.1.0
+description: Savoir-faire Linux' content management plugin
+icon: database
+author:
+  name: Savoir-faire Linux
+  email: amelie.turgeon@savoirfairelinux.com
+homepage: https://github.com/savoirfairelinux/grav-plugin-content-management
+keywords: grav, plugin, content, git
+bugs: https://github.com/savoirfairelinux/grav-plugin-content-management/issues
+docs: https://github.com/savoirfairelinux/grav-plugin-content-management/blob/develop/README.md
+license: MIT
+
+form:
+  validation: strict
+  fields:
+    enabled:
+      type: toggle
+      label: Plugin status
+      highlight: 1
+      default: 0
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool

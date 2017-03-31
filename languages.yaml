@@ -1,0 +1,19 @@
+en:
+  PLUGIN_CONTENT_MANAGEMENT:
+    CONTENT_MANAGEMENT: Content Management
+    TO_PROD: To Prod
+    SEE_DETAIL: See detail
+    SENT_TO_PROD: Content was sent to prod
+    ERROR_RIGHTS: You don't have correct rights
+    ERROR_TO_PROD: There was an error in treatment
+    DETAIL_TITLE: Detail for %s
+
+fr:
+  PLUGIN_CONTENT_MANAGEMENT:
+    CONTENT_MANAGEMENT: Gestion des contenus
+    TO_PROD: Production
+    SEE_DETAIL: Voir le détail
+    SENT_TO_PROD: Le contenu a été envoyé en production
+    ERROR_RIGHTS: Vous n'avez pas les droits requis
+    ERROR_TO_PROD: Il y a eu une erreur lors du traitement
+    DETAIL_TITLE: Détail de %s

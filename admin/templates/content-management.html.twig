@@ -1,0 +1,56 @@
+{% extends 'partials/base.html.twig' %}
+{% set mode = 'general' %}
+
+{% if uri.paths[1] == 'content-management' and uri.paths[2] %}
+    {% set mode = 'detail' %}
+    {% if uri.paths[2] == 'toProd' %}
+        {% set mode = 'toProd' %}
+    {% endif %}
+    {% if uri.paths[2] == 'errorNoHashProd' %}
+        {% set mode = 'errorNoHashProd' %}
+    {% endif %}
+    {% if uri.paths[2] == 'errorRightsProd' %}
+        {% set mode = 'errorRightsProd' %}
+    {% endif %}
+{% endif %}
+
+{% if admin.route %}
+    {% set context = admin.page(true) %}
+{% endif %}
+
+{% block titlebar %}
+    <h1><i class="fa fa-fw fa-file-text-o"></i> {{ "PLUGIN_CONTENT_.CONTENT_MANAGEMENT"|tu }}</h1>
+{% endblock %}
+
+{% block content %}
+    <style>
+    #admin-main button:disabled.button.button-x-small { background-color: #A0DED3; }
+    .content-button-bar {display:inline-block; margin-right: 1em}
+    </style>
+
+    <div class="page-data">
+        <div class="gpm gpm-themes">
+            <h1>
+                {{"PLUGIN_CONTENT_MANAGEMENT.CONTENT_MANAGEMENT"|e|tu}}
+            </h1>
+
+            <div class="gpm gpm-themes themes card-row grid fixed-blocks pure-g">
+                {% if mode == 'general' %}
+                    {% include "partials/general.html.twig" %}
+                {% endif %}
+                {% if mode == 'detail' %}
+                    {% include "partials/detail.html.twig" %}
+                {% endif %}
+                {% if mode == 'toProd' %}
+                    {% include "partials/toProd.html.twig" %}
+                {% endif %}
+                {% if mode == 'errorNoHashProd' %}
+                    {% include "partials/errorNoHashProd.html.twig" %}
+                {% endif %}
+                {% if mode == 'errorRightsProd' %}
+                    {% include "partials/errorRightsProd.html.twig" %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

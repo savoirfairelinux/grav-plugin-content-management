@@ -1,0 +1,10 @@
+<div class="details">
+    {% for index, data in grav.twig.logs %}
+    <div>
+            {% include 'partials/blueprints-to-prod.html.twig'
+                with { form_id: data.hash, data: data,
+                disabled: data.hash == grav.twig.prod.hash } %}
+
+    </div>
+    {% endfor %}
+</div>
